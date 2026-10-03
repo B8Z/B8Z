@@ -1,40 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="388" viewBox="0 0 1200 388" role="img" aria-labelledby="title desc">
-  <title id="title">Adam Bates — Senior Software Engineer</title>
-  <desc id="desc">I build services, interfaces, and the tools to test them. A diagram from my Device Recovery Lab shows a command reaching a device, a missing completion response, and a journal query to reconcile the outcome.</desc>
-  <defs>
-    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#d6eee8" stroke-opacity=".045"/>
-    </pattern>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7ddcc2"/>
-    </marker>
-  </defs>
-  <rect width="1200" height="388" rx="16" fill="#102b32"/>
-  <rect x="564" width="636" height="388" fill="url(#grid)"/>
-  <path d="M 564 36 V 352" stroke="#385057"/>
-  <rect x="40" y="42" width="4" height="22" rx="2" fill="#7ddcc2"/>
-  <g font-family="Segoe UI, Arial, sans-serif">
-    <text x="60" y="60" font-size="18" font-weight="600" letter-spacing="2" fill="#b6cdd0">ADAM BATES</text>
-    <text x="40" y="128" font-size="42" font-weight="650" fill="#f4f8f6">I build services,</text>
-    <text x="40" y="182" font-size="42" font-weight="650" fill="#f4f8f6">interfaces, and the</text>
-    <text x="40" y="236" font-size="42" font-weight="650" fill="#7ddcc2">tools to test them.</text>
-    <text x="40" y="298" font-size="20" fill="#d4e1e1">Senior Software Engineer</text>
-    <text x="40" y="331" font-size="17" fill="#acc4c8">Distributed systems · Devices · Optimization</text>
-    <text x="604" y="60" font-size="15" font-weight="600" letter-spacing="1.5" fill="#b6cdd0">FROM MY DEVICE RECOVERY LAB</text>
-    <rect x="604" y="98" width="226" height="100" rx="10" fill="#193a42" stroke="#48636a"/>
-    <rect x="928" y="98" width="226" height="100" rx="10" fill="#173e3d" stroke="#52766c"/>
-    <text x="626" y="128" font-size="16" fill="#b6cdd0">SERVICE</text>
-    <text x="626" y="169" font-size="26" font-weight="600" fill="#f4c087">Uncertain</text>
-    <text x="950" y="128" font-size="16" fill="#b6cdd0">SIMULATED DEVICE</text>
-    <text x="950" y="169" font-size="26" font-weight="600" fill="#7ddcc2">Action complete</text>
-    <path d="M 830 112 H 924" stroke="#7ddcc2" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-    <text x="879" y="93" text-anchor="middle" font-size="14" fill="#d4e1e1">command</text>
-    <path d="M 928 183 H 895 M 863 183 H 830" stroke="#f4c087" stroke-width="2" stroke-dasharray="4 4"/>
-    <path d="M 874 178 L 884 188 M 884 178 L 874 188" stroke="#f4c087" stroke-width="2"/>
-    <path d="M 717 198 V 247 H 1041 V 202" stroke="#7ddcc2" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-    <rect x="782" y="231" width="194" height="31" rx="5" fill="#102b32"/>
-    <text x="879" y="252" text-anchor="middle" font-size="18" fill="#7ddcc2">query the journal</text>
-    <text x="604" y="306" font-size="21" fill="#f4f8f6">The device acted. The response was lost.</text>
-    <text x="604" y="337" font-size="18" fill="#b6cdd0">I make the recovery decision visible.</text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="408" viewBox="0 0 1280 408" role="img" aria-labelledby="title desc">
+<title id="title">Adam Bates — software engineering</title><desc id="desc">I build services, device interfaces, and the tools to verify them. Two independent engineering experiments: recovery under failure and placement under constraints.</desc>
+<defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#8aebc2" stroke-opacity=".06"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5 0 10" fill="#8aebc2"/></marker></defs>
+<rect width="1280" height="408" rx="16" fill="#0b161a"/><rect x="622" width="658" height="408" fill="url(#grid)"/><path d="M622 34V374" stroke="#30434a"/>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="42" y="57" fill="#8aebc2" font-size="17" letter-spacing="2.5">ADAM BATES / SOFTWARE ENGINEERING</text><text x="42" y="130" fill="#ecf2ef" font-size="43" font-weight="600">I build services,</text><text x="42" y="185" fill="#ecf2ef" font-size="43" font-weight="600">device interfaces, and</text><text x="42" y="240" fill="#8aebc2" font-size="43" font-weight="600">the tools to verify them.</text><text x="42" y="310" fill="#aec0c2" font-size="18">Java / Spring / Kafka · Python / Playwright</text><text x="42" y="341" fill="#aec0c2" font-size="18">Device integration · Applied optimization</text>
+<text x="658" y="55" fill="#aec0c2" font-size="13" letter-spacing="2">TWO QUESTIONS. INSPECTABLE EXPERIMENTS.</text>
+<rect x="658" y="80" width="584" height="125" rx="8" fill="#12252b" stroke="#30434a"/><text x="680" y="110" fill="#8aebc2" font-size="12" letter-spacing="1.5">01 / RECOVERY UNDER FAILURE</text><text x="680" y="143" fill="#ecf2ef" font-size="22">Did the device act?</text><text x="680" y="176" fill="#ffb681" font-size="16">Uncertain service</text><path d="M837 171H905" stroke="#8aebc2" marker-end="url(#arrow)"/><text x="921" y="176" fill="#8aebc2" font-size="16">Query execution evidence</text>
+<rect x="658" y="225" width="584" height="140" rx="8" fill="#12252b" stroke="#30434a"/><text x="680" y="255" fill="#8aebc2" font-size="12" letter-spacing="1.5">02 / OPTIMIZATION UNDER CONSTRAINTS</text><text x="680" y="288" fill="#ecf2ef" font-size="22">Which placement is worth making?</text><path d="M680 334H781L807 324H891L921 316H1010L1040 310H1219" fill="none" stroke="#8aebc2" stroke-width="2"/><text x="680" y="352" fill="#aec0c2" font-size="12">Constraints → search → compare → explain</text></g></svg>

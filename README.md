@@ -1,64 +1,85 @@
 <picture>
   <source media="(max-width: 600px)" srcset="assets/engineering-mobile.svg">
-  <img src="assets/engineering.svg" alt="Adam Bates — Senior Software Engineer. I build services, interfaces, and the tools to test them.">
+  <img src="assets/engineering.svg" alt="Adam Bates — I build services, device interfaces, and the tools to verify them. Explore recovery under failure and optimization under constraints.">
 </picture>
 
-I’m Adam, a Senior Software Engineer. My work spans Java/Spring Boot and Kafka
-services at JPMorgan Chase, customer-facing ATM interfaces and device integration
-at Capital One, and Python NLP services at Width.ai. At Capital One, I led the
-ATM interface modernization team, supervised its work, and helped team members
-understand the ATM architecture. I also built Python/Playwright automation to
-check interface behavior and visual changes on QA hardware. My master’s research
-adds a different angle: optimization under resource and delay constraints.
+I’m **Adam Bates, a Senior Software Engineer**. I work across distributed
+services, physical-device interfaces, and the tools that make their behavior
+easier to test and understand.
 
-Much of my professional work lives in proprietary employer repositories. My
-public activity captures only part of that experience, so I use these independent
-projects to show my design decisions, tests, and experimental results.
+At **JPMorgan Chase**, I implemented Kafka messaging for a Java/Spring Boot
+trade-routing platform. At **Capital One**, I built customer-facing ATM
+interfaces, led the interface modernization team, and developed Python/Playwright
+automation to check behavior and visual changes on QA hardware. Earlier, I built
+Python NLP services at **Width.ai**. My graduate research connects this work to
+applied optimization under capacity and delay constraints.
 
-## Start with my [Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)
+Much of my professional work lives in proprietary employer repositories.
+These independent projects let me show the decisions, tests, and experiments
+behind my engineering without publishing employer systems.
 
-**If a device acts but its response disappears, how should the service recover?**
+## Two ways to inspect my work
 
-I built a simulated parcel-locker workflow that puts the service’s knowledge
-beside the device’s actual state. A timeline follows each command through receipt,
-action, and recovery. When a response is missing, the service checks the device’s
-execution journal before deciding whether to send the command again.
+| Project | Start here | What to look for |
+| --- | --- | --- |
+| **[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)** | [Step through a captured failure →](https://b8z.github.io/device-recovery-lab/) | How I separate message receipt from physical completion, preserve uncertainty, and reconcile before retrying. |
+| **[Placement Tradeoffs](https://github.com/B8Z/placement-tradeoffs)** | [Explore recorded experiments →](https://b8z.github.io/placement-tradeoffs/) | How I define constraints, compare algorithms fairly, and explain when a simpler method is enough. |
 
-[![A real run of my lab: the service is UNCERTAIN while the simulated device is open after one actuator pulse.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/demo-uncertain.png)](https://github.com/B8Z/device-recovery-lab)
+Both browser viewers show **recorded output from real local runs**. Each
+repository also starts with `python run.py` for live experiments, without a cloud
+account or runtime package installation.
 
-*This is a captured run. The device panel is diagnostic instrumentation; the
-recovery service cannot use that view to decide completion.*
+### 01 / Device Recovery Lab
 
-| Try a failure | Inspect the decision |
-| --- | --- |
-| Duplicate command | The device recognizes the same command ID and suppresses a second action. |
-| Lost acknowledgment | The service reconciles the completed action without sending it again. |
-| Disconnected device | Recovery backs off, then checks the journal when the link returns. |
+**The device acted. The response was lost. What should the service do next?**
 
-For this October 2026 demonstration, I chose two Python processes, HTTP, and
-separate SQLite journals. [Run it locally](https://github.com/B8Z/device-recovery-lab#run-it)
-with `python run.py`; no cloud account or runtime package installation is needed.
+[![A captured run: the service is uncertain while the simulated device is open, with one actuator pulse.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/demo-uncertain.png)](https://b8z.github.io/device-recovery-lab/)
 
-**Where I’d start in the source:** the
-[expected behavior](https://github.com/B8Z/device-recovery-lab/blob/main/docs/behavior.md),
-the [recovery decisions](https://github.com/B8Z/device-recovery-lab/blob/main/lab/service.py),
-and the [tests](https://github.com/B8Z/device-recovery-lab/blob/main/docs/testing.md).
-I recorded one simulated pulse in each of [32 trials](https://github.com/B8Z/device-recovery-lab/tree/main/measurements)
-in October 2026. The data shows the recovery work under those settings. This is
-my own simulation with [explicit hardware limits](https://github.com/B8Z/device-recovery-lab#limits-and-next-questions),
-not an employer system or an exactly-once claim.
+I built a parcel-locker simulator with separate service and device processes,
+durable journals, and a visible event timeline. Introduce duplicate delivery,
+lose a completion response, or disconnect the device and restore its link.
+The recovery controller queries the execution journal before deciding to resend.
 
-## My research: optimization under constraints
+**Inspect:** [expected behavior](https://github.com/B8Z/device-recovery-lab/blob/main/docs/behavior.md)
+· [recovery controller](https://github.com/B8Z/device-recovery-lab/blob/main/lab/service.py)
+· [tests and measurements](https://github.com/B8Z/device-recovery-lab/tree/main/measurements)
 
-For my **2022 master’s thesis at Christopher Newport University**, I developed a
-genetic algorithm and a VNF placement heuristic in Python using NumPy and
-NetworkX. I compared the approach with a Gurobi MILP model to examine how
-solution quality and runtime vary with network, workload, and resource-sharing
-configuration.
+The diagnostic device panel can see behind a broken link; the service cannot use
+that panel as completion evidence. I document the actuator/journal crash boundary
+explicitly, because this simulator does not establish exactly-once physical execution.
 
-**[A Genetic Algorithm for the Optimization of Service Provisioning in Multi-Layer Fog Networks](research/fog-network-thesis.md)**
+### 02 / Placement Tradeoffs
 
-I explain the problem and configuration-dependent tradeoffs in the research
-note, updated in October 2026. I haven’t reproduced the original experiments here.
+**A placement can be feasible and still block a better combination.**
 
-[Connect with me on LinkedIn](https://www.linkedin.com/in/b8z/) · [Explore the lab](https://github.com/B8Z/device-recovery-lab#run-it)
+[![Actual solver output: greedy scores 23 while genetic search and exhaustive enumeration reach 27 under tight deadlines. The placement map shows capacity use and the search trace.](https://raw.githubusercontent.com/B8Z/placement-tradeoffs/main/docs/placement-comparison.png)](https://b8z.github.io/placement-tradeoffs/)
+
+I compare greedy placement, seeded genetic search, and an exhaustive reference
+on the same small model. Change capacity, deadlines, or cost, then inspect the
+admitted requests, rejected requests, capacity use, and objective gap.
+
+In the [recorded experiment](https://github.com/B8Z/placement-tradeoffs/tree/main/measurements),
+greedy reaches the optimum in three configurations. Under tighter deadlines it
+scores 23 against an optimum of 27; genetic search reaches 27 in the five tested
+seeds. I retain the inputs, timings, variability and source revision so the
+tradeoff can be checked rather than generalized from a headline.
+
+**Inspect:** [model contract](https://github.com/B8Z/placement-tradeoffs/blob/main/docs/contract.md)
+· [three solvers](https://github.com/B8Z/placement-tradeoffs/blob/main/placement/solvers.py)
+· [hand-solved correctness checks](https://github.com/B8Z/placement-tradeoffs/blob/main/tests/test_placement.py)
+
+This is a new October 2026 implementation. My **2022 master’s thesis at Christopher
+Newport University** addressed a richer VNF-placement problem with Python, NumPy,
+NetworkX and a Gurobi MILP comparison. I keep the historical research and current
+experiments separate: [read my thesis note](research/fog-network-thesis.md).
+
+## How I use tools and evidence
+
+I use AI assistance in these projects. The useful part is what I can verify:
+an explicit behavior contract, a small reproducible case, and results that retain
+their workload and measurement conditions. A passing test supports the behavior
+it exercised; a simulation result stays a simulation result.
+
+[LinkedIn](https://www.linkedin.com/in/b8z/) ·
+[Recovery lab](https://github.com/B8Z/device-recovery-lab) ·
+[Placement experiment](https://github.com/B8Z/placement-tradeoffs)

@@ -46,10 +46,24 @@ the model size and use. Academic licenses have eligibility requirements; see
 I haven’t substituted another solver or described its output as the original
 comparison.
 
-A runnable research package would require checking the original artifacts and
+A runnable reproduction would require checking the original artifacts and
 documenting the workloads, constraints, objective, termination conditions, and
-random seeds. That remains future work. For a complete experiment that runs
-locally without a commercial solver, I’ve built
-[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab).
+random seeds. That remains future work.
+
+## A new, runnable placement experiment
+
+I built [Placement Tradeoffs](https://github.com/B8Z/placement-tradeoffs) in
+October 2026 to make a smaller constrained-placement problem easy to inspect.
+It compares greedy placement and seeded genetic search against exhaustive
+enumeration on the same synthetic inputs. A browser viewer exposes the actual
+recorded assignments and generation traces; `python run.py` runs fresh experiments.
+
+This experiment uses independent requests, fixed location delays and simple
+capacity costs. It omits the thesis's richer network and VNF model. Its exhaustive
+reference needs no commercial solver, but it is **not the Gurobi comparison**, and
+its new measurements are not reproduced thesis results.
+
+[Explore the recorded experiments](https://b8z.github.io/placement-tradeoffs/)
+or inspect the [measurement protocol and raw data](https://github.com/B8Z/placement-tradeoffs/tree/main/measurements).
 
 [Back to my profile](../README.md)
