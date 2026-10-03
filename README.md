@@ -22,7 +22,7 @@ behind my engineering without publishing employer systems.
 
 | Project | Start here | What to look for |
 | --- | --- | --- |
-| **[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)** | [Step through a captured failure →](https://b8z.github.io/device-recovery-lab/) | How I separate message receipt from physical completion, preserve uncertainty, and reconcile before retrying. |
+| **[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)** | [Compare two controller crashes →](https://b8z.github.io/device-recovery-lab/#boundary) | How I distinguish a recoverable lost response from missing physical evidence—and decide when automatic recovery must stop. |
 | **[Placement Tradeoffs](https://github.com/B8Z/placement-tradeoffs)** | [Explore recorded experiments →](https://b8z.github.io/placement-tradeoffs/) | How I define constraints, compare algorithms fairly, and explain when a simpler method is enough. |
 
 Both browser viewers show **recorded output from real local runs**. Each
@@ -31,22 +31,29 @@ account or runtime package installation.
 
 ### 01 / Device Recovery Lab
 
-**The device acted. The response was lost. What should the service do next?**
+**When should a service retry, and when must it stop?**
 
-[![A captured run: the service is uncertain while the simulated device is open, with one actuator pulse.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/demo-uncertain.png)](https://b8z.github.io/device-recovery-lab/)
+[![Actual captured process crashes: zero versus one physical pulses, the same IN_DOUBT journal state, and a service that requires inspection instead of repeating the action.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/crash-boundary.png)](https://b8z.github.io/device-recovery-lab/#boundary)
 
 I built a parcel-locker simulator with separate service and device processes,
 durable journals, and a visible event timeline. Introduce duplicate delivery,
 lose a completion response, or disconnect the device and restore its link.
 The recovery controller queries the execution journal before deciding to resend.
 
+Then I remove the assumption that makes reconciliation possible: terminate the
+actual controller process before or after a pulse, while completion is still
+unrecorded. Both restarted journals report the same uncertainty. One locker has
+acted; the other has not. The service preserves that uncertainty and requires
+inspection because retrying would risk repeating a completed action.
+
 **Inspect:** [expected behavior](https://github.com/B8Z/device-recovery-lab/blob/main/docs/behavior.md)
 · [recovery controller](https://github.com/B8Z/device-recovery-lab/blob/main/lab/service.py)
-· [tests and measurements](https://github.com/B8Z/device-recovery-lab/tree/main/measurements)
+· [process-crash tests](https://github.com/B8Z/device-recovery-lab/blob/main/tests/test_crash_boundary.py)
+· [why I stop here](https://github.com/B8Z/device-recovery-lab/blob/main/docs/crash-boundary.md)
 
 The diagnostic device panel can see behind a broken link; the service cannot use
-that panel as completion evidence. I document the actuator/journal crash boundary
-explicitly, because this simulator does not establish exactly-once physical execution.
+that panel as completion evidence. These are synthetic correctness experiments;
+they do not establish exactly-once physical execution or power-loss safety.
 
 ### 02 / Placement Tradeoffs
 
