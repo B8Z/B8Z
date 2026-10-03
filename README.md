@@ -31,9 +31,9 @@ account or runtime package installation.
 
 ### 01 / Device Recovery Lab
 
-**Did the device actually act—and what can the service prove?**
+**The door opened. The reply didn’t.**
 
-[![A device illustration follows actual captured simulator output: one pulse has opened the locker while the service remains uncertain. Scenario controls and journal evidence explain the decision.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/experiment-workbench.png)](https://b8z.github.io/device-recovery-lab/)
+[![The door opened, but its reply was lost. A captured simulator run shows one physical action while the service remains uncertain; guided recovery checks the controller evidence.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/experiment-workbench.png)](https://b8z.github.io/device-recovery-lab/)
 
 I built a parcel-locker simulator with separate service and device processes,
 durable journals, and a visible event timeline. Introduce duplicate delivery,
