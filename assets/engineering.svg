@@ -1,8 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="408" viewBox="0 0 1280 408" role="img" aria-labelledby="title desc">
-<title id="title">Adam Bates — software engineering</title><desc id="desc">I build services, device interfaces, and the tools to verify them. Two independent engineering experiments: recovery under failure and placement under constraints.</desc>
-<defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#8aebc2" stroke-opacity=".06"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5 0 10" fill="#8aebc2"/></marker></defs>
-<rect width="1280" height="408" rx="16" fill="#0b161a"/><rect x="622" width="658" height="408" fill="url(#grid)"/><path d="M622 34V374" stroke="#30434a"/>
-<g font-family="Segoe UI,Arial,sans-serif"><text x="42" y="57" fill="#8aebc2" font-size="17" letter-spacing="2.5">ADAM BATES / SOFTWARE ENGINEERING</text><text x="42" y="130" fill="#ecf2ef" font-size="43" font-weight="600">I build services,</text><text x="42" y="185" fill="#ecf2ef" font-size="43" font-weight="600">device interfaces, and</text><text x="42" y="240" fill="#8aebc2" font-size="43" font-weight="600">the tools to verify them.</text><text x="42" y="310" fill="#aec0c2" font-size="18">Java / Spring / Kafka · Python / Playwright</text><text x="42" y="341" fill="#aec0c2" font-size="18">Device integration · Applied optimization</text>
-<text x="658" y="55" fill="#aec0c2" font-size="13" letter-spacing="2">TWO QUESTIONS. INSPECTABLE EXPERIMENTS.</text>
-<rect x="658" y="80" width="584" height="125" rx="8" fill="#12252b" stroke="#30434a"/><text x="680" y="110" fill="#8aebc2" font-size="12" letter-spacing="1.5">01 / RECOVERY UNDER FAILURE</text><text x="680" y="143" fill="#ecf2ef" font-size="22">Did the device act?</text><text x="680" y="176" fill="#ffb681" font-size="16">Uncertain service</text><path d="M837 171H905" stroke="#8aebc2" marker-end="url(#arrow)"/><text x="921" y="176" fill="#8aebc2" font-size="16">Query execution evidence</text>
-<rect x="658" y="225" width="584" height="140" rx="8" fill="#12252b" stroke="#30434a"/><text x="680" y="255" fill="#8aebc2" font-size="12" letter-spacing="1.5">02 / OPTIMIZATION UNDER CONSTRAINTS</text><text x="680" y="288" fill="#ecf2ef" font-size="22">Which placement is worth making?</text><path d="M680 334H781L807 324H891L921 316H1010L1040 310H1219" fill="none" stroke="#8aebc2" stroke-width="2"/><text x="680" y="352" fill="#aec0c2" font-size="12">Constraints → search → compare → explain</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430" role="img" aria-labelledby="title desc">
+<title id="title">Adam Bates — software engineer</title>
+<desc id="desc">I build services, device interfaces, and the tools to verify them. Distributed systems, physical devices, and applied optimization.</desc>
+<defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#d6dccd" stroke-width="0.6"/></pattern></defs>
+<rect width="1280" height="430" fill="#f3f1e9"/>
+<rect x="875" width="405" height="430" fill="#e4e9dc"/>
+<rect x="875" width="405" height="430" fill="url(#grid)"/>
+<path d="M48 56h18" stroke="#ae431b" stroke-width="5"/>
+<text x="79" y="61" fill="#465343" font-family="monospace" font-size="14" letter-spacing="2">SOFTWARE ENGINEER</text>
+<text x="44" y="197" fill="#202923" font-family="Arial, sans-serif" font-size="104" font-weight="600" letter-spacing="-6">Adam Bates</text>
+<text x="50" y="265" fill="#364333" font-family="Arial, sans-serif" font-size="28">I build services, device interfaces,</text>
+<text x="50" y="305" fill="#364333" font-family="Arial, sans-serif" font-size="28">and the tools to verify them.</text>
+<path d="M50 352h770" stroke="#c5ccba"/>
+<text x="50" y="391" fill="#586450" font-family="monospace" font-size="13" letter-spacing="1">DISTRIBUTED SYSTEMS / DEVICES / APPLIED OPTIMIZATION</text>
+<g font-family="monospace" fill="#465343" font-size="12" letter-spacing="1"><text x="913" y="60">INTENT</text><text x="1085" y="193">ACTION</text><text x="913" y="357">EVIDENCE</text></g>
+<g fill="none" stroke="#59714e" stroke-width="1.5"><path d="M949 84v77l145 67v61l-145 46"/><path d="M949 94l191 78v117l-191 61" stroke-dasharray="4 6"/><path d="M913 169l107-50 107 50v99l-107 51-107-51z" fill="#f3f1e9"/><path d="M913 169l107 51 107-51M1020 220v99"/></g>
+<circle cx="949" cy="84" r="7" fill="#59714e" stroke="#f3f1e9" stroke-width="3"/>
+<circle cx="949" cy="350" r="7" fill="#ae431b" stroke="#f3f1e9" stroke-width="3"/>
+<path d="M1038 242l28-14v45l-28 14z" fill="#ae431b"/>
+<text x="913" y="393" fill="#586450" font-family="monospace" font-size="11">OBSERVE. TEST. RECONCILE.</text>
+</svg>

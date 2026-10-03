@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="365" viewBox="0 0 600 365" role="img" aria-labelledby="title desc"><title id="title">Adam Bates — software engineering</title><desc id="desc">I build services, device interfaces, and the tools to verify them. Distributed services, device integration, applied optimization.</desc><rect width="600" height="365" rx="14" fill="#0b161a"/><path d="M32 305H568" stroke="#30434a"/><g font-family="Segoe UI,Arial,sans-serif"><text x="32" y="47" fill="#8aebc2" font-size="15" letter-spacing="2">ADAM BATES / SOFTWARE ENGINEERING</text><text x="32" y="111" fill="#ecf2ef" font-size="39" font-weight="600">I build services,</text><text x="32" y="163" fill="#ecf2ef" font-size="39" font-weight="600">device interfaces, and</text><text x="32" y="215" fill="#8aebc2" font-size="39" font-weight="600">the tools to verify them.</text><text x="32" y="265" fill="#aec0c2" font-size="18">Java / Spring / Kafka · Python / Playwright</text><text x="32" y="338" fill="#aec0c2" font-size="17">Devices · Distributed services · Optimization</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="440" viewBox="0 0 600 440" role="img" aria-labelledby="title desc">
+<title id="title">Adam Bates — software engineer</title>
+<desc id="desc">I build services, device interfaces, and the tools to verify them. Distributed systems, physical devices, and applied optimization.</desc>
+<rect width="600" height="440" fill="#f3f1e9"/>
+<path d="M30 48h16" stroke="#ae431b" stroke-width="5"/>
+<text x="60" y="53" fill="#465343" font-family="monospace" font-size="16" letter-spacing="2">SOFTWARE ENGINEER</text>
+<text x="25" y="156" fill="#202923" font-family="Arial, sans-serif" font-size="85" font-weight="600" letter-spacing="-4">Adam Bates</text>
+<text x="30" y="221" fill="#364333" font-family="Arial, sans-serif" font-size="27">I build services, device interfaces,</text>
+<text x="30" y="260" fill="#364333" font-family="Arial, sans-serif" font-size="27">and the tools to verify them.</text>
+<path d="M30 306h540" stroke="#c5ccba"/>
+<g fill="#586450" font-family="monospace" font-size="17" letter-spacing="1"><text x="30" y="345">DISTRIBUTED SYSTEMS</text><text x="30" y="376">PHYSICAL DEVICES</text><text x="30" y="407">APPLIED OPTIMIZATION</text></g>
+<g fill="none" stroke="#59714e" stroke-width="1.5"><path d="M480 324l48 23v48l-48 23-48-23v-48z" fill="#e4e9dc"/><path d="M432 347l48 24 48-24M480 371v47"/></g><path d="M490 378l17-8v22l-17 8z" fill="#ae431b"/>
+</svg>

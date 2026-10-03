@@ -1,6 +1,6 @@
 <picture>
   <source media="(max-width: 600px)" srcset="assets/engineering-mobile.svg">
-  <img src="assets/engineering.svg" alt="Adam Bates — I build services, device interfaces, and the tools to verify them. Explore recovery under failure and optimization under constraints.">
+  <img src="assets/engineering.svg" alt="Adam Bates — I build services, device interfaces, and the tools to verify them. Distributed systems, physical devices, and applied optimization.">
 </picture>
 
 I’m **Adam Bates, a Senior Software Engineer**. I work across distributed
@@ -22,7 +22,7 @@ behind my engineering without publishing employer systems.
 
 | Project | Start here | What to look for |
 | --- | --- | --- |
-| **[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)** | [Compare two controller crashes →](https://b8z.github.io/device-recovery-lab/#boundary) | How I distinguish a recoverable lost response from missing physical evidence—and decide when automatic recovery must stop. |
+| **[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)** | [Break communication, inspect recovery →](https://b8z.github.io/device-recovery-lab/) | Durable worker ownership, externally injected faults, actual process crashes, and matched concurrency experiments. |
 | **[Placement Tradeoffs](https://github.com/B8Z/placement-tradeoffs)** | [Explore recorded experiments →](https://b8z.github.io/placement-tradeoffs/) | How I define constraints, compare algorithms fairly, and explain when a simpler method is enough. |
 
 Both browser viewers show **recorded output from real local runs**. Each
@@ -31,14 +31,15 @@ account or runtime package installation.
 
 ### 01 / Device Recovery Lab
 
-**When should a service retry, and when must it stop?**
+**Did the device actually act—and what can the service prove?**
 
-[![Actual captured process crashes: zero versus one physical pulses, the same IN_DOUBT journal state, and a service that requires inspection instead of repeating the action.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/crash-boundary.png)](https://b8z.github.io/device-recovery-lab/#boundary)
+[![A device illustration follows actual captured simulator output: one pulse has opened the locker while the service remains uncertain. Scenario controls and journal evidence explain the decision.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/experiment-workbench.png)](https://b8z.github.io/device-recovery-lab/)
 
 I built a parcel-locker simulator with separate service and device processes,
 durable journals, and a visible event timeline. Introduce duplicate delivery,
 lose a completion response, or disconnect the device and restore its link.
 The recovery controller queries the execution journal before deciding to resend.
+The illustration follows captured observations; the local lab runs the processes.
 
 Then I remove the assumption that makes reconciliation possible: terminate the
 actual controller process before or after a pulse, while completion is still
@@ -46,10 +47,23 @@ unrecorded. Both restarted journals report the same uncertainty. One locker has
 acted; the other has not. The service preserves that uncertainty and requires
 inspection because retrying would risk repeating a completed action.
 
+I also compare one and four recovery workers under identical queued workloads,
+with faults injected by a separate HTTP proxy. Durable claims prevent stale
+workers from overwriting newer decisions. The tests kill the service during an
+outstanding response and reject a deliberately broken worker that claims success
+without completion evidence.
+
+In the [recorded experiment](https://github.com/B8Z/device-recovery-lab/blob/main/docs/workload.md),
+all 864 measured operations passed the recorded invariants. Four workers reduced
+the typical completion time, but one mixed-fault batch was slower with four.
+I keep that exception visible because the experiment supports a conditional
+result, not a universal speedup.
+
 **Inspect:** [expected behavior](https://github.com/B8Z/device-recovery-lab/blob/main/docs/behavior.md)
 · [recovery controller](https://github.com/B8Z/device-recovery-lab/blob/main/lab/service.py)
 · [process-crash tests](https://github.com/B8Z/device-recovery-lab/blob/main/tests/test_crash_boundary.py)
-· [why I stop here](https://github.com/B8Z/device-recovery-lab/blob/main/docs/crash-boundary.md)
+· [worker ownership tests](https://github.com/B8Z/device-recovery-lab/blob/main/tests/test_ownership.py)
+· [matched workloads and the slower run](https://b8z.github.io/device-recovery-lab/#workload)
 
 The diagnostic device panel can see behind a broken link; the service cannot use
 that panel as completion evidence. These are synthetic correctness experiments;
