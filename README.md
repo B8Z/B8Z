@@ -5,10 +5,11 @@
 
 I’m Adam, a Senior Software Engineer. My work spans Java/Spring Boot and Kafka
 services at JPMorgan Chase, customer-facing ATM interfaces and device integration
-at Capital One, and Python NLP services at Width.ai. At Capital One, I also built
-Python/Playwright automation to check interface behavior and visual changes on
-QA hardware. My master’s research adds a different angle: optimization under
-resource and delay constraints.
+at Capital One, and Python NLP services at Width.ai. At Capital One, I led the
+ATM interface modernization team, supervised its work, and helped team members
+understand the ATM architecture. I also built Python/Playwright automation to
+check interface behavior and visual changes on QA hardware. My master’s research
+adds a different angle: optimization under resource and delay constraints.
 
 Much of my professional work lives in proprietary employer repositories. My
 public activity captures only part of that experience, so I use these independent
@@ -34,7 +35,8 @@ recovery service cannot use that view to decide completion.*
 | Lost acknowledgment | The service reconciles the completed action without sending it again. |
 | Disconnected device | Recovery backs off, then checks the journal when the link returns. |
 
-I use two Python processes, HTTP, and separate SQLite journals. [Run it locally](https://github.com/B8Z/device-recovery-lab#run-it)
+For this October 2026 demonstration, I chose two Python processes, HTTP, and
+separate SQLite journals. [Run it locally](https://github.com/B8Z/device-recovery-lab#run-it)
 with `python run.py`; no cloud account or runtime package installation is needed.
 
 **Where I’d start in the source:** the
