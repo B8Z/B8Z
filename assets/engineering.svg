@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="388" viewBox="0 0 1200 388" role="img" aria-labelledby="title desc">
+  <title id="title">Adam Bates — Senior Software Engineer</title>
+  <desc id="desc">I build services, interfaces, and the tools to test them. A diagram from my Device Recovery Lab shows a command reaching a device, a missing completion response, and a journal query to reconcile the outcome.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#d6eee8" stroke-opacity=".045"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7ddcc2"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="388" rx="16" fill="#102b32"/>
+  <rect x="564" width="636" height="388" fill="url(#grid)"/>
+  <path d="M 564 36 V 352" stroke="#385057"/>
+  <rect x="40" y="42" width="4" height="22" rx="2" fill="#7ddcc2"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="60" y="60" font-size="18" font-weight="600" letter-spacing="2" fill="#b6cdd0">ADAM BATES</text>
+    <text x="40" y="128" font-size="42" font-weight="650" fill="#f4f8f6">I build services,</text>
+    <text x="40" y="182" font-size="42" font-weight="650" fill="#f4f8f6">interfaces, and the</text>
+    <text x="40" y="236" font-size="42" font-weight="650" fill="#7ddcc2">tools to test them.</text>
+    <text x="40" y="298" font-size="20" fill="#d4e1e1">Senior Software Engineer</text>
+    <text x="40" y="331" font-size="17" fill="#acc4c8">Distributed systems · Devices · Optimization</text>
+    <text x="604" y="60" font-size="15" font-weight="600" letter-spacing="1.5" fill="#b6cdd0">FROM MY DEVICE RECOVERY LAB</text>
+    <rect x="604" y="98" width="226" height="100" rx="10" fill="#193a42" stroke="#48636a"/>
+    <rect x="928" y="98" width="226" height="100" rx="10" fill="#173e3d" stroke="#52766c"/>
+    <text x="626" y="128" font-size="16" fill="#b6cdd0">SERVICE</text>
+    <text x="626" y="169" font-size="26" font-weight="600" fill="#f4c087">Uncertain</text>
+    <text x="950" y="128" font-size="16" fill="#b6cdd0">SIMULATED DEVICE</text>
+    <text x="950" y="169" font-size="26" font-weight="600" fill="#7ddcc2">Action complete</text>
+    <path d="M 830 112 H 924" stroke="#7ddcc2" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+    <text x="879" y="93" text-anchor="middle" font-size="14" fill="#d4e1e1">command</text>
+    <path d="M 928 183 H 895 M 863 183 H 830" stroke="#f4c087" stroke-width="2" stroke-dasharray="4 4"/>
+    <path d="M 874 178 L 884 188 M 884 178 L 874 188" stroke="#f4c087" stroke-width="2"/>
+    <path d="M 717 198 V 247 H 1041 V 202" stroke="#7ddcc2" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+    <rect x="782" y="231" width="194" height="31" rx="5" fill="#102b32"/>
+    <text x="879" y="252" text-anchor="middle" font-size="18" fill="#7ddcc2">query the journal</text>
+    <text x="604" y="306" font-size="21" fill="#f4f8f6">The device acted. The response was lost.</text>
+    <text x="604" y="337" font-size="18" fill="#b6cdd0">I make the recovery decision visible.</text>
+  </g>
+</svg>

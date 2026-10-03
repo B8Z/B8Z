@@ -1,61 +1,55 @@
 # A Genetic Algorithm for the Optimization of Service Provisioning in Multi-Layer Fog Networks
 
-**Adam Bates · Christopher Newport University · Master's thesis, 2022**
+**My master’s thesis · Christopher Newport University · 2022**
+
+I developed a genetic algorithm and a virtual network function (VNF) placement
+heuristic in Python, using NumPy and NetworkX, and compared the approach with a
+Gurobi mixed-integer linear programming (MILP) model.
 
 [Original thesis listing on ProQuest](https://www.proquest.com/openview/492aa4a8f393f6e9388249c4cd0d7ba6/1?pq-origsite=gscholar&cbl=18750&diss=y)
 
-**Portfolio note maintained October 3, 2026.** The date above belongs to the
-original research. This note describes that work; it does not report a new
-implementation or a reproduction of the original experiments.
+## The placement problem
 
-## Problem
+A service request can require several VNFs placed across different layers of a
+fog network. Each placement consumes capacity and contributes to delay, which
+means a choice that works for one request can limit what remains feasible for
+another. I examined this as a constrained optimization problem: the solution
+must satisfy capacity and delay requirements as well as pursue the objective.
 
-Service requests can require virtual network functions (VNFs) placed across
-different layers of a fog network. A feasible placement must respect resource
-capacity and delay constraints. Placement decisions interact: consuming capacity
-for one request can change what remains feasible for another.
+My implementation combined genetic search with a placement heuristic. The
+comparison with the MILP model let me examine solution quality and runtime under
+different network, workload, and resource-sharing configurations.
 
-## Research contribution
+## How I interpret the comparison
 
-The thesis developed a genetic algorithm and a VNF placement heuristic in Python,
-using NumPy and NetworkX. It compared the approach with a Gurobi mixed-integer
-linear programming model. The comparison asks how solution quality and runtime
-vary with network, workload and resource-sharing configuration.
+The tradeoff depends on the configuration. A result for one workload and search
+budget does not establish that a heuristic is always faster or produces better
+solutions. Feasibility, solution quality, and runtime each need to be examined
+under the same problem conditions.
 
-The tradeoff is configuration-dependent. A heuristic search and a mathematical
-optimization model expose different choices in search budget, feasibility and
-solution quality. This note makes no universal superiority claim and does not
-attribute every comparison method to the thesis author.
+A solver time limit sets a budget; it is not an observed runtime. I keep those
+separate when interpreting the comparison. My contribution was the genetic
+algorithm and placement heuristic; the MILP model provided the comparison.
 
-## Reproduction status
+## What is available here
 
-The original source code, exact experiment configurations and result data are
-not included in the currently reviewed public repositories. No 2026 reproduction
-or newly timed experiment is claimed. Historical numerical results are not
-repeated here without the original artifacts and their measurement context.
+**I updated this portfolio note on October 3, 2026. The research is from 2022.**
+I haven’t reproduced the original experiments for this portfolio. The original
+source, exact configurations, and result data are not included here, so I’m not
+publishing new timings or repeating historical numbers without their experiment
+context. The linked thesis is the historical reference; access may depend on
+ProQuest.
 
-The linked thesis is the historical reference; its availability may depend on
-ProQuest access. The listing could not be retrieved by the automated verification
-tool during this portfolio update.
+Running the original MILP comparison requires Gurobi and a license suitable for
+the model size and use. Academic licenses have eligibility requirements; see
+[Gurobi’s licensing information](https://www.gurobi.com/academia/academic-program-and-licenses/).
+I haven’t substituted another solver or described its output as the original
+comparison.
 
-Running the original MILP comparison would require Gurobi and a license suitable
-for the model size and use. Academic licenses have eligibility conditions;
-restricted licenses have model-size limits. See
-[Gurobi's academic licensing information](https://www.gurobi.com/academia/academic-program-and-licenses/).
-No alternative solver has been substituted or described as the original comparison.
+A runnable research package would require checking the original artifacts and
+documenting the workloads, constraints, objective, termination conditions, and
+random seeds. That remains future work. For a complete experiment that runs
+locally without a commercial solver, I’ve built
+[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab).
 
-There is no runnable thesis example here until the original artifacts can be
-checked. For a complete local engineering experiment requiring no commercial
-solver or cloud service, see [Device Recovery Lab](https://github.com/B8Z/device-recovery-lab).
-
-## What I would discuss in an interview
-
-- How a placement heuristic handles capacity and delay feasibility.
-- How the objective function and resource-sharing assumptions affect tradeoffs.
-- Why a configured solver time limit must be distinguished from an observed
-  runtime or a speedup claim.
-- Why a fair comparison needs the same workload, constraints, objective,
-  termination conditions and documented random seeds.
-
-Those are methodological discussion points, not claims that new experiments have
-been run. Restoring a reproducible research package is future work.
+[Back to my profile](../README.md)

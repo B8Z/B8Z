@@ -1,40 +1,62 @@
-# Adam Bates
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/engineering-mobile.svg">
+  <img src="assets/engineering.svg" alt="Adam Bates — Senior Software Engineer. I build services, interfaces, and the tools to test them.">
+</picture>
 
-**Senior Software Engineer · distributed services, device interfaces, and engineering tools**
+I’m Adam, a Senior Software Engineer. My work spans Java/Spring Boot and Kafka
+services at JPMorgan Chase, customer-facing ATM interfaces and device integration
+at Capital One, and Python NLP services at Width.ai. At Capital One, I also built
+Python/Playwright automation to check interface behavior and visual changes on
+QA hardware. My master’s research adds a different angle: optimization under
+resource and delay constraints.
 
-I build services and interfaces that work across software and physical devices,
-with testing, diagnostics, and recovery built into the engineering process.
-My experience includes Java/Spring Boot and Kafka services at JPMorgan Chase,
-customer-facing ATM interfaces and Python/Playwright automation at Capital One,
-and NLP services at Width.ai.
+Much of my professional work lives in proprietary employer repositories. My
+public activity captures only part of that experience, so I use these independent
+projects to show my design decisions, tests, and experimental results.
 
-Much of my professional work lives in proprietary employer repositories. These
-public projects make my engineering approach inspectable through independent
-implementations, explicit constraints, and reproducible evidence.
+## Start with my [Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)
 
-## Start here: [Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)
+**If a device acts but its response disappears, how should the service recover?**
 
-**A message arrived. Did the locker open?** Request a simulated locker release,
-inject a duplicate command, lose a completion acknowledgment, or disconnect the
-device. Watch the service distinguish receipt from physical completion and
-reconcile uncertainty without blindly repeating the action.
+I built a simulated parcel-locker workflow that puts the service’s knowledge
+beside the device’s actual state. A timeline follows each command through receipt,
+action, and recovery. When a response is missing, the service checks the device’s
+execution journal before deciding whether to send the command again.
 
-[![A real local run: the service is uncertain while the simulated device has performed one release pulse](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/demo-uncertain.png)](https://github.com/B8Z/device-recovery-lab)
+[![A real run of my lab: the service is UNCERTAIN while the simulated device is open after one actuator pulse.](https://raw.githubusercontent.com/B8Z/device-recovery-lab/main/docs/demo-uncertain.png)](https://github.com/B8Z/device-recovery-lab)
 
-Open it for the [behavior contract](https://github.com/B8Z/device-recovery-lab/blob/main/docs/behavior.md),
-[recovery controller](https://github.com/B8Z/device-recovery-lab/blob/main/lab/service.py),
-and [tests and recorded observations](https://github.com/B8Z/device-recovery-lab/tree/main/measurements).
-Two Python processes, HTTP, separate SQLite journals, and a small web interface;
-runs locally without cloud services. This is a personal simulation, not an employer system.
+*This is a captured run. The device panel is diagnostic instrumentation; the
+recovery service cannot use that view to decide completion.*
 
-## Complementary research
+| Try a failure | Inspect the decision |
+| --- | --- |
+| Duplicate command | The device recognizes the same command ID and suppresses a second action. |
+| Lost acknowledgment | The service reconciles the completed action without sending it again. |
+| Disconnected device | Recovery backs off, then checks the journal when the link returns. |
+
+I use two Python processes, HTTP, and separate SQLite journals. [Run it locally](https://github.com/B8Z/device-recovery-lab#run-it)
+with `python run.py`; no cloud account or runtime package installation is needed.
+
+**Where I’d start in the source:** the
+[expected behavior](https://github.com/B8Z/device-recovery-lab/blob/main/docs/behavior.md),
+the [recovery decisions](https://github.com/B8Z/device-recovery-lab/blob/main/lab/service.py),
+and the [tests](https://github.com/B8Z/device-recovery-lab/blob/main/docs/testing.md).
+I recorded one simulated pulse in each of [32 trials](https://github.com/B8Z/device-recovery-lab/tree/main/measurements)
+in October 2026. The data shows the recovery work under those settings. This is
+my own simulation with [explicit hardware limits](https://github.com/B8Z/device-recovery-lab#limits-and-next-questions),
+not an employer system or an exactly-once claim.
+
+## My research: optimization under constraints
+
+For my **2022 master’s thesis at Christopher Newport University**, I developed a
+genetic algorithm and a VNF placement heuristic in Python using NumPy and
+NetworkX. I compared the approach with a Gurobi MILP model to examine how
+solution quality and runtime vary with network, workload, and resource-sharing
+configuration.
 
 **[A Genetic Algorithm for the Optimization of Service Provisioning in Multi-Layer Fog Networks](research/fog-network-thesis.md)**
-— master's thesis, Christopher Newport University, **2022**.
 
-Python/NumPy/NetworkX research on genetic search and VNF placement under capacity
-and delay constraints, with a Gurobi MILP comparison. Open the research note for
-the problem, methods, configuration-dependent tradeoffs, and reproduction limits.
-The original research date is distinct from this portfolio's October 2026 presentation.
+I explain the problem and configuration-dependent tradeoffs in the research
+note, updated in October 2026. I haven’t reproduced the original experiments here.
 
-[LinkedIn](https://www.linkedin.com/in/b8z/)
+[Connect with me on LinkedIn](https://www.linkedin.com/in/b8z/) · [Explore the lab](https://github.com/B8Z/device-recovery-lab#run-it)
