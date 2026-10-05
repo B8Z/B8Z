@@ -2,6 +2,11 @@
 
 **My master’s thesis · Christopher Newport University · 2022**
 
+<picture>
+  <source media="(max-width: 600px)" srcset="../assets/plate-thesis-narrow.svg">
+  <img src="../assets/plate-thesis.svg" alt="An explanatory schematic of network functions placed across three layers. Each placement consumes capacity and contributes to delay. This drawing is not a result from my thesis.">
+</picture>
+
 I developed a genetic algorithm and a virtual network function (VNF) placement
 heuristic in Python, using NumPy and NetworkX, and compared the approach with a
 Gurobi mixed-integer linear programming (MILP) model.
