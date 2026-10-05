@@ -1,18 +1,27 @@
 <picture>
   <source media="(max-width: 600px)" srcset="assets/engineering-mobile.svg">
-  <img src="assets/engineering.svg" alt="Adam Bates — I build services, device interfaces, and the tools to verify them. Distributed systems, physical devices, and applied optimization.">
+  <img src="assets/engineering.svg" alt="Adam Bates — Senior Software Engineer. Complex systems, optimization, and technical leadership. I build and improve complex systems, and help teams understand them.">
 </picture>
 
-I’m **Adam Bates, a Senior Software Engineer**. I work across distributed
-services, physical-device interfaces, and the tools that make their behavior
-easier to test and understand.
+I’m **Adam Bates, a Senior Software Engineer** with 7+ years across software
+development and applied research. I build and improve complex systems, from
+financial applications and customer-facing interfaces to the tools engineers
+use to test, diagnose, and maintain them.
+
+I take ownership from understanding the problem through implementation and
+validation. That includes working through unfamiliar parts of a system,
+weighing trade-offs, and helping the team understand the decisions.
 
 At **JPMorgan Chase**, I implemented Kafka messaging for a Java/Spring Boot
-trade-routing platform. At **Capital One**, I built customer-facing ATM
-interfaces, led the interface modernization team, and developed Python/Playwright
-automation to check behavior and visual changes on QA hardware. Earlier, I built
-Python NLP services at **Width.ai**. My graduate research connects this work to
-applied optimization under capacity and delay constraints.
+trade-routing platform, built order-lifecycle auditing, and led a database
+migration to AWS. At **Capital One**, I led the ATM interface modernization
+team, built customer-facing interfaces, and independently developed Python-based
+automation to validate software on QA hardware. I also worked with engineers
+and vendors to diagnose problems across application, host, and hardware boundaries.
+
+Earlier, I built Python NLP services at **Width.ai**. My master’s research in
+**Applied Physics and Computer Science** focused on algorithmic optimization
+under capacity and delay constraints.
 
 Much of my professional work lives in proprietary employer repositories.
 These independent projects let me show the decisions, tests, and experiments
@@ -22,8 +31,8 @@ behind my engineering without publishing employer systems.
 
 | Project | Start here | What to look for |
 | --- | --- | --- |
-| **[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)** | [Break communication, inspect recovery →](https://b8z.github.io/device-recovery-lab/) | Durable worker ownership, externally injected faults, actual process crashes, and matched concurrency experiments. |
-| **[Placement Tradeoffs](https://github.com/B8Z/placement-tradeoffs)** | [Explore recorded experiments →](https://b8z.github.io/placement-tradeoffs/) | How I define constraints, compare algorithms fairly, and explain when a simpler method is enough. |
+| **[Device Recovery Lab](https://github.com/B8Z/device-recovery-lab)** | [Break communication, inspect recovery →](https://b8z.github.io/device-recovery-lab/) | How I protect correctness across service/device boundaries, test recovery independently, and evaluate concurrency under faults. |
+| **[Placement Tradeoffs](https://github.com/B8Z/placement-tradeoffs)** | [Explore recorded experiments →](https://b8z.github.io/placement-tradeoffs/) | How I define an optimization objective, preserve constraints, compare algorithms fairly, and explain when a simpler method is enough. |
 
 Both browser viewers show **recorded output from real local runs**. Each
 repository also starts with `python run.py` for live experiments, without a cloud
@@ -93,6 +102,24 @@ This is a new October 2026 implementation. My **2022 master’s thesis at Christ
 Newport University** addressed a richer VNF-placement problem with Python, NumPy,
 NetworkX and a Gurobi MILP comparison. I keep the historical research and current
 experiments separate: [read my thesis note](research/fog-network-thesis.md).
+
+## How I approach the work
+
+Before optimizing a system, I establish what we’re trying to improve and what
+needs to stay intact. That might mean reducing execution time, resource use, or
+manual effort while preserving correctness. I use focused experiments to check
+whether a change helps under the conditions that matter, and keep the limitations
+visible so the next decision has a useful starting point.
+
+I also make the reasoning available to the people maintaining the system through
+technical guidance, documentation, and mentoring.
+
+## What I’m looking for
+
+I’m interested in **senior software engineering and hands-on technical lead
+roles**, particularly in backend and platform engineering, modernization,
+integration, and developer tooling. I’m open to different domains where I can
+help shape technical decisions while staying involved in implementation.
 
 ## How I use tools and evidence
 
