@@ -1,106 +1,74 @@
 <picture>
   <source media="(max-width: 600px)" srcset="assets/hero-narrow.svg">
-  <img src="assets/hero.svg" alt="Adam Bates — Senior Software Engineer. I build and improve complex systems, and help teams understand them. Financial systems, device integration, and applied optimization.">
+  <img src="assets/hero.svg" alt="Adam Bates, Senior Software Engineer focused on backend systems, integrations, and developer tooling.">
 </picture>
 
-I’m a **Senior Software Engineer with 7+ years across software development and
-applied research**. My work spans financial applications, customer-facing
-interfaces, hardware integration, and the tools engineers use to understand
-and maintain them. I take ownership from figuring out the problem through
-implementation and validation, and help the team understand the decisions.
+I'm **Adam Bates, a senior software engineer focused on backend systems,
+integrations, and developer tooling**.
 
-Much of my professional work lives in proprietary employer repositories.
-These independent projects show how I work through failure, test an explanation,
-and evaluate a trade-off.
-
-**Start here:** [Recovery under failure](https://b8z.github.io/device-recovery-lab/)
-· [Optimization experiments](https://b8z.github.io/placement-tradeoffs/)
-· [Professional background](#professional-background)
-· [LinkedIn](https://www.linkedin.com/in/b8z/)
-
-## Device Recovery Lab
-
-<a href="https://b8z.github.io/device-recovery-lab/">
-  <picture>
-    <source media="(max-width: 600px)" srcset="assets/plate-recovery-narrow.svg">
-    <img src="assets/plate-recovery.svg" alt="Two illustrated controller-crash outcomes from the lab: before the pulse, the simulated locker is closed with zero physical pulses; after the pulse, it is open with one. Both controller journals say IN_DOUBT. Open the recorded viewer to inspect the evidence.">
-  </picture>
-</a>
-
-**Receiving a command doesn’t establish that the physical action completed.**
-I built separate service and device processes with durable journals, then tested
-duplicate delivery, a lost completion response, and a device that reconnects.
-The service queries the device’s execution journal before deciding to resend.
-
-The harder case is a controller crash before completion is recorded. I terminate
-the actual process on either side of the simulated physical pulse. Both restarted
-journals report `IN_DOUBT`, although only one locker acted. The service requires
-inspection because it cannot safely infer which outcome occurred.
-
-[Explore the recorded timeline →](https://b8z.github.io/device-recovery-lab/)
-· [Read the code and run it locally](https://github.com/B8Z/device-recovery-lab)
-· [Inspect the crash tests](https://github.com/B8Z/device-recovery-lab/blob/main/tests/test_crash_boundary.py)
-
-I also compare one and four recovery workers under matched workloads.
-The [measurement report](https://github.com/B8Z/device-recovery-lab/blob/main/docs/workload.md)
-includes all 864 measured operations and the mixed-fault batch that was slower
-with four workers. These are synthetic experiments, not a claim of exactly-once
-physical execution or power-loss safety.
-
-## Placement Tradeoffs
-
-<a href="https://b8z.github.io/placement-tradeoffs/">
-  <picture>
-    <source media="(max-width: 600px)" srcset="assets/plate-placement-narrow.svg">
-    <img src="assets/plate-placement.svg" alt="Illustration of the tighter-deadline fixture. Only Edge is eligible, with six capacity units. Greedy places C in five units for objective 23. Genetic search and exhaustive enumeration place D and E in six units for objective 27. Open the recorded experiments.">
-  </picture>
-</a>
-
-**A feasible choice can leave less room for a better combination.** I compare
-greedy placement, seeded genetic search, and exhaustive enumeration on the same
-small model. The viewer exposes assignments, rejected requests, capacity use,
-and the gap from the optimum.
-
-In the recorded experiment, greedy reaches the optimum in three configurations.
-With tighter deadlines it scores 23 against an optimum of 27; genetic search
-reaches 27 in the five tested seeds. The result depends on the configuration
-and search budget.
-
-[Explore the recorded experiments →](https://b8z.github.io/placement-tradeoffs/)
-· [Read the model and run it locally](https://github.com/B8Z/placement-tradeoffs)
-· [Inspect the measurements](https://github.com/B8Z/placement-tradeoffs/tree/main/measurements)
-
-This is a new October 2026 implementation. My **2022 master’s thesis at
-Christopher Newport University** addressed a richer VNF-placement problem with
-Python, NumPy, NetworkX, and a Gurobi MILP comparison. I keep the original research
-separate from these new experiments: [read my thesis note](research/fog-network-thesis.md).
+**Core stack:** Java, Spring Boot, Kafka, SQL, Python, and AWS.
 
 ## Professional background
 
-At **JPMorgan Chase**, I implemented Kafka messaging for a Java/Spring Boot
-trade-routing platform, built order-lifecycle auditing, and led a database
-migration to AWS.
+At **JPMorgan Chase**, I built Java/Spring Boot services for order management
+and routing, independently implemented Kafka messaging, and built an order-audit
+system that made bugs easier to identify. I also led an order-management
+database migration to AWS, validating the data and coordinating the cutover
+with the team.
 
-At **Capital One**, I led the ATM interface modernization team, built
-customer-facing interfaces, and independently developed Python-based automation
-to validate software on QA hardware. I worked with engineers and vendors to
+At **Capital One**, I led the ATM interface modernization team's technical
+work, built the customer interface, and independently developed Python-based
+validation tooling for QA hardware. I worked with engineers and vendors to
 diagnose problems across application, host, and hardware boundaries. Earlier,
-I built Python NLP services at **Width.ai**.
+I led Python and NLP development at **Width.ai**.
 
-My master’s background in **Applied Physics and Computer Science** informs how
-I approach optimization: establish the objective and constraints, compare under
-the same conditions, and check what the result actually supports. I make that
-reasoning available through technical guidance, documentation, and mentoring.
+My M.S. in **Applied Physics and Computer Science** informs how I define
+constraints, compare alternatives, and test what a result actually supports.
 
-I’m interested in **senior engineering and hands-on technical lead roles** in
-backend and platform engineering, modernization, integration, and developer
-tooling, including opportunities in other domains with these kinds of problems.
-[Connect with me on LinkedIn](https://www.linkedin.com/in/b8z/).
+I'm interested in backend and integration engineering, modernization, and
+tools that help engineering teams diagnose problems and deliver dependable
+software. [Connect with me on LinkedIn](https://www.linkedin.com/in/b8z/).
+
+Read the professional case studies: [JPMorgan Chase backend and integration](professional/jpmorgan-chase.md)
+· [Capital One validation and developer tooling](professional/capital-one.md).
+
+## Selected independent projects
+
+These projects show how I investigate failures, make design decisions, and
+verify results. They are independent implementations, separate from employer
+systems.
+
+### Device Recovery Lab
+
+Reliable command processing requires more than receiving a message. I built
+separate service and simulated-device processes with durable journals to
+explore duplicate delivery, lost completion responses, and recovery. The
+service inspects journal evidence before deciding whether to retry; unresolved
+physical outcomes require inspection. This is a simulation, not a claim of
+exactly-once physical execution or power-loss safety.
+
+[Explore the recorded timeline](https://b8z.github.io/device-recovery-lab/)
+· [Read the code and run it locally](https://github.com/B8Z/device-recovery-lab)
+· [Inspect the crash tests](https://github.com/B8Z/device-recovery-lab/blob/main/tests/test_crash_boundary.py)
+
+### Placement Tradeoffs
+
+I compare greedy placement and seeded genetic search against exhaustive
+enumeration under shared capacity, deadline, and cost constraints. The
+experiments expose assignments and the gap from the optimum, so the result
+can be assessed against its configuration and search budget.
+
+This is an independent October 2026 implementation. My 2022 master's thesis
+addressed a richer fog-network placement problem; it is separate research.
+[Read my thesis note](research/fog-network-thesis.md).
+
+[Explore the recorded experiments](https://b8z.github.io/placement-tradeoffs/)
+· [Read the model and run it locally](https://github.com/B8Z/placement-tradeoffs)
+· [Inspect the measurements](https://github.com/B8Z/placement-tradeoffs/tree/main/measurements)
 
 ---
 
-Both viewers show recorded output from real local runs; each repository also
-starts with `python run.py` for fresh experiments without a cloud account.
-I use AI assistance in these projects and verify the work through explicit
-behavior contracts, tests, and reproducible experiments.
-[How the illustrations are made](art/README.md).
+Both viewers show recorded output from local runs. Each repository also starts
+with `python run.py` for fresh experiments without a cloud account. I use AI
+assistance and verify the work through explicit behavior contracts, tests,
+and reproducible experiments. [How the illustrations are made](art/README.md).
