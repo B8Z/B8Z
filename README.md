@@ -6,21 +6,24 @@
 I'm **Adam Bates, a senior software engineer** working on backend systems,
 integrations, and developer tooling.
 
-At Capital One, I came into an ATM system I hadn't worked with before. I learned
-how its application, vendor platform, host, and hardware behaved together, then
-used that understanding to lead the interface modernization team's technical
-work and independently design and build a Python validation platform.
+At JPMorgan Chase, I built Java/Spring Boot services for order management and
+routing and independently implemented Kafka messaging. I built searchable
+order auditing so engineers could follow a reported problem through the
+sequence of events, and led a database migration to AWS with data validation
+and a team-reviewed cutover after market close.
 
-That platform gave engineers, product, legal, and hardware teams a shared way
-to inspect implemented customer journeys, test evidence, and remediation
-reports. I also worked across those system boundaries to trace production
-problems, including a reboot loop. The larger modernization was still in
-progress when I left.
+At Capital One, I joined without prior knowledge of the ATM architecture.
+I learned how the application, vendor platform, host, and hardware worked
+together, then used that understanding to lead technical work and independently
+design and build a Python validation platform.
 
-At JPMorgan Chase, I independently implemented Kafka messaging for trade
-routing, built Java/Spring Boot order-management services, and built an
-audit system that made bugs easier to identify. I also led a database
-migration to AWS, including data validation and a team-reviewed cutover.
+The platform gave engineering, product, legal, and hardware teams shared test
+evidence. Visual and functional differences became structured defect reports
+supporting reviewed fixes, rebuilding, and revalidation. I also set the
+integration approach between the shared Vue.js library and ATM transaction
+flows, so the UI team could keep developing its library while the ATM team
+handled styling and kept the flows stable. The wider modernization remained
+in progress when I left.
 
 The connection between those roles is the kind of work I want to keep doing:
 understanding how a system behaves, following problems across its boundaries,
@@ -32,8 +35,8 @@ alternatives and test what a result actually supports.
 
 ## Professional work
 
-- [Capital One: learning the system and making its behavior visible](professional/capital-one.md)
 - [JPMorgan Chase: order routing, diagnostic evidence, and migration](professional/jpmorgan-chase.md)
+- [Capital One: learning the system and making its behavior visible](professional/capital-one.md)
 
 [Download the professional portfolio (PDF)](Adam-Bates_Engineering-Portfolio_Public.pdf).
 
