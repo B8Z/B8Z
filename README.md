@@ -35,6 +35,8 @@ alternatives and test what a result actually supports.
 - [Capital One: learning the system and making its behavior visible](professional/capital-one.md)
 - [JPMorgan Chase: order routing, diagnostic evidence, and migration](professional/jpmorgan-chase.md)
 
+[Download the professional portfolio (PDF)](Adam-Bates_Engineering-Portfolio_Public.pdf).
+
 These accounts separate my contribution, the team's work, and the limits of
 the result. I'm happy to walk through the decisions behind either one.
 [Connect with me on LinkedIn](https://www.linkedin.com/in/b8z/).
