@@ -14,11 +14,13 @@ In separate production incident work, I traced a reboot loop across application,
 
 ## Turning that understanding into a tool
 
+One integration decision concerned the shared Vue.js library and the ATM transaction flows. I set the approach so the UI team could keep developing the library while the ATM team styled screens in CSS and kept the flows stable. That division let each team contribute within the system's constraints.
+
 Product, design, legal, hardware, and engineering teams had different responsibilities and constraints. The validation project was assigned to me; I determined its architecture independently while working with those teams. The platform gave them a shared view of how the implemented customer journeys behaved.
 
 I used Python and Playwright to run functional and visual checks on QA hardware. A run followed reachable customer flows, collected evidence, compared screens with their intended designs, and produced flow maps and remediation reports. The dashboard brought those outputs together for engineers and partner teams.
 
-This made the behavior inspectable beyond my own explanation of it. Engineers could use the evidence to investigate defects, while other teams could understand the functionality relevant to their work. Proposed fixes still went through review, rebuilding, and revalidation.
+Visual and functional differences became structured defect reports supporting reviewed, vendor-compatible fixes, rebuilding, and revalidation. Engineering could act on the defect evidence, while product, legal, and hardware teams could inspect the implemented behavior in the same dashboard. The tool connected validation to the work people needed to do afterward.
 
 ## Contribution and outcome
 
